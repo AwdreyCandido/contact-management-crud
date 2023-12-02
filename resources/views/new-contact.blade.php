@@ -10,10 +10,12 @@
 
 <body>
     <form action="/new-contact" method="POST">
+        @csrf
         <h1>New Contacts</h1>
         <input name="name" type="text" placeholder="Name">
         <input name="contact" type="text" placeholder="Contact">
         <input name="email" type="text" placeholder="E-mail">
+        <button>Create Contact</button>
     </form>
 </body>
 

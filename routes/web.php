@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
-use GuzzleHttp\Psr7\Request;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +22,21 @@ Route::get('/', function () {
 // USER ROUTES
 
 // create register route
+// create access new contact form route
+Route::get('/register', function () {
+    return view('register');
+});
+Route::post('/register', [UserController::class, 'register']);
+
 // create login route
+Route::get('/login', function () {
+    return view('login');
+});
+Route::post('/login', [UserController::class, 'login']);
+
 // create logout route
 
-
+Route::post('/logout', [UserController::class, 'logout']);
 
 // CONTACT ROUTES
 

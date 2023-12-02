@@ -13,6 +13,24 @@
         Contact Management Web application
     </h1>
 
+    <form action="/login" method="GET">
+        @csrf
+        <button>Log in</button>
+    </form>
+
+    @auth
+        <form action="/logout" method="POST">
+            @csrf
+            <button>Logout</button>
+        </form>
+
+        <form action="/new-contact" method="GET">
+            @csrf
+            <button>New Contact</button>
+        </form>
+    @endauth
+
+
     {{--  LIST OF EXISTING CONTACTS  --}}
 
 
