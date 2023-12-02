@@ -41,7 +41,7 @@
 
     </header>
 
-    <main class="w-full lg:w-[55%] lg:min-w-[55%] p-4">
+    <main class="w-full lg:w-[60%] lg:min-w-[60%] p-4">
 
         @auth
             <h1 class="text-2xl font-bold mb-6 mt-4">
@@ -60,7 +60,7 @@
             @if (count($contacts) > 0)
                 <div class="flex text-lg font-medium gap-4 pl-4 items-center">
                     <div class="w-[150px]">Name</div>
-                    <div class="w-[200px]">E-mail</div>
+                    <div class="w-[300px]">E-mail</div>
                     <div class="w-[150px]">Phone Number</div>
                 </div>
                 @foreach ($contacts as $contact)
@@ -68,7 +68,7 @@
                         <div class="flex justify-between px-4 py-2 border-2 border-gray-400 rounded-lg ">
                             <div class="flex text-lg gap-4 items-center">
                                 <div class="w-[150px]">{{ $contact['name'] }}</div>
-                                <div class="w-[200px]">{{ $contact['email'] }}</div>
+                                <div class="w-[300px]">{{ $contact['email'] }}</div>
                                 <div class="w-[150px]">{{ $contact['contact'] }}</div>
                             </div>
                             @auth
