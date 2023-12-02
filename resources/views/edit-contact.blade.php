@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="/new-contact/{{ $contact->id }}" method="POST">
+    <form action="/edit-contact/{{ $contact->id }}" method="POST">
         @csrf
         @method('PUT')
         <h1>Edit Contact</h1>
