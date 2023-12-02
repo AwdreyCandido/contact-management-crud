@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+// USER ROUTES
+
+// create register route
+// create login route
+// create logout route
+
+
+
+// CONTACT ROUTES
+
+// create access new contact form route
+Route::get('/new-contact', function () {
+    return view('new-contact');
+});
+// create new contact route
+Route::post('/new-contact', [ContactController::class, 'createContact']);
