@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
 
-    public function updateContact(Contact $contact, Request $request) {
-        if(auth()->user()->id !== $contact['user_id']){
+    public function updateContact(Contact $contact, Request $request)
+    {
+        if (auth()->user()->id !== $contact['user_id']) {
             return redirect('/');
         }
 
@@ -49,6 +50,14 @@ class ContactController extends Controller
 
         Contact::create($fields);
 
+        return redirect('/');
+    }
+
+    public function deleteContact(Contact $contact)
+    {
+        if (auth()->user()->id === $contact['user_id']) {
+            $contact->delete();
+        }
         return redirect('/');
     }
 }

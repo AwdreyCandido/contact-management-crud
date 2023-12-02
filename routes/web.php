@@ -53,3 +53,4 @@ Route::post('/new-contact', [ContactController::class, 'createContact']);
 // edit contact route
 Route::get('/edit-contact/{contact}', [ContactController::class, 'showEditScreen']);
 Route::put('/edit-contact/{contact}', [ContactController::class, 'updateContact']);
+Route::delete('/delete-contact/{contact}', [ContactController::class, 'deleteContact']);

@@ -31,6 +31,12 @@
                 <div>{{ $contact['email'] }}</div>
 
                 <p><a href="/edit-contact/{{ $contact->id }}">Edit</a></p>
+
+                <form action="/delete-contact/{{ $contact->id }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>Delete</button>
+                </form>
             </div>
         @endforeach
     @else
