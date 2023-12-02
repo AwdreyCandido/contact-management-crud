@@ -12,6 +12,7 @@ class ContactController extends Controller
 
     public function updateContact(Contact $contact, Request $request)
     {
+
         if (auth()->user()->id !== $contact['user_id']) {
             return redirect('/');
         }
@@ -25,6 +26,7 @@ class ContactController extends Controller
         );
 
         $contact->update($incomingFields);
+
         return redirect('/');
     }
 
