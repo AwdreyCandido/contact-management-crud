@@ -22,7 +22,11 @@
                 placeholder="Contact" value="{{ $contact['contact'] }}">
             <input class="bg-[#e2e2e2] px-4 py-1 border-2 border-gray-400 rounded-lg " name="email" type="text"
                 placeholder="E-mail" value="{{ $contact['email'] }}">
-            <button class="bg-blue-400 hover:bg-blue-500 duration-300 mt-4 text-lg font-medium text-white px-6 py-2 rounded-lg">Save
+
+            <hr class="my-4">
+
+            <button
+                class="bg-blue-400 hover:bg-blue-500 duration-300 text-lg font-medium text-white px-6 py-2 rounded-lg">Save
                 Changes
             </button>
         </form>

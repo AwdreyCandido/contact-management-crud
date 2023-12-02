@@ -13,14 +13,16 @@ class UserController extends Controller
     {
         // Take the values from the form
         $fields = $request->validate([
-            'name' => ['required', 'min:3', 'max:20', Rule::unique('users', 'name')],
+            'name' => ['required', 'min:5', 'max:20', Rule::unique('users', 'name')],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'max:20']
         ]);
 
         // Hashing password to store in database
         $fields['password'] = bcrypt($fields['password']);
-
+        // Capitalizing the name
+        $fields['name'] =  ucwords($fields['name']);
+        
         // Create a new instance with the User model with the incoming data
         $user = User::create($fields);
 

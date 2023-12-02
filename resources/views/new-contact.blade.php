@@ -21,7 +21,10 @@
                 placeholder="Contact">
             <input class="bg-[#e2e2e2] px-4 py-1 border-2 border-gray-400 rounded-lg " name="email" type="text"
                 placeholder="E-mail">
-            <button class="bg-blue-400 hover:bg-blue-500 duration-300 mt-4 text-lg font-medium text-white px-6 py-2 rounded-lg">Create Contact</button>
+            <hr class="my-4">
+            <button
+                class="bg-blue-400 hover:bg-blue-500 duration-300 text-lg font-medium text-white px-6 py-2 rounded-lg">Create
+                Contact</button>
         </form>
     </div>
 </body>

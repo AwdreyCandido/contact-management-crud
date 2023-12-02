@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ContactController extends Controller
 {
@@ -17,9 +18,9 @@ class ContactController extends Controller
 
         $incomingFields = $request->validate(
             [
-                'name' => "required",
-                'contact' => "required",
-                'email' => "required"
+                'name' => ["required", "min:6"],
+                'contact' => ["required", "digits:9", Rule::unique('contacts', 'contact')],
+                'email' => ["required", "email", Rule::unique('contacts', 'email')]
             ]
         );
 
@@ -33,6 +34,11 @@ class ContactController extends Controller
             return redirect('/');
         }
         return view('edit-contact', ['contact' => $contact]);
+    }
+
+    public function showDetailsScreen(Contact $contact)
+    {
+        return view('contact-details', ['contact' => $contact]);
     }
 
     public function createContact(Request $request)

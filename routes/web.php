@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $contacts = [];
+    $contacts = Contact::all();
     if (auth()->check()) {
         $contacts = auth()->user()->userContacts()->get();
     }
+
     return view('home', ['contacts' => $contacts]);
 });
 
@@ -54,3 +56,6 @@ Route::post('/new-contact', [ContactController::class, 'createContact']);
 Route::get('/edit-contact/{contact}', [ContactController::class, 'showEditScreen']);
 Route::put('/edit-contact/{contact}', [ContactController::class, 'updateContact']);
 Route::delete('/delete-contact/{contact}', [ContactController::class, 'deleteContact']);
+
+// see contact details
+Route::get('/contact-details/{contact}', [ContactController::class, 'showDetailsScreen']);
