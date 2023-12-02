@@ -13,11 +13,6 @@
         Contact Management Web application
     </h1>
 
-    <form action="/login" method="GET">
-        @csrf
-        <button>Log in</button>
-    </form>
-
     @auth
         <form action="/logout" method="POST">
             @csrf
@@ -28,6 +23,26 @@
             @csrf
             <button>New Contact</button>
         </form>
+
+        @foreach ($contacts as $contact)
+            <div style="background-color: gray; padding: 10px; margin: 10px;">
+                <div>{{ $contact['name'] }}</div>
+                <div>{{ $contact['contact'] }}</div>
+                <div>{{ $contact['email'] }}</div>
+
+                <p><a href="/edit-contact/{{ $contact->id }}">Edit</a></p>
+            </div>
+        @endforeach
+    @else
+        <form action="/register" method="GET">
+            @csrf
+            <button>Register</button>
+        </form>
+        <form action="/login" method="GET">
+            @csrf
+            <button>Log in</button>
+        </form>
+
     @endauth
 
 

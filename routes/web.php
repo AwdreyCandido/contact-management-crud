@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $contacts = [];
+    if (auth()->check()) {
+        $contacts = auth()->user()->userContacts()->get();
+    }
+    return view('home', ['contacts' => $contacts]);
 });
 
 // USER ROUTES
@@ -46,3 +50,6 @@ Route::get('/new-contact', function () {
 });
 // create new contact route
 Route::post('/new-contact', [ContactController::class, 'createContact']);
+// edit contact route
+Route::get('/edit-contact/{contact}', [ContactController::class, 'showEditScreen']);
+Route::put('/edit-contact/{contact}', [ContactController::class, 'updateContact']);
